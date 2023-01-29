@@ -1,4 +1,4 @@
-package com.example.demo.hello;
+package com.eka.VaxSys.Vax;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -6,6 +6,7 @@ import javax.persistence.Id;
 @Entity
 public class Timeslot {
     @Id
+    int id;
     int tDay;
     int tMonth;
     int tYear;
@@ -13,9 +14,13 @@ public class Timeslot {
     int startMinutes;
     int endHour;
     int endMinutes;
+    int AMKA_Doctor;
+    int ID_Center;
 
     public Timeslot(){};
-    public Timeslot(int tDay, int tMonth, int tYear, int startHour, int startMinutes, int endHour, int endMinutes) {
+
+    public Timeslot(int id, int tDay, int tMonth, int tYear, int startHour, int startMinutes, int endHour, int endMinutes, int AMKA_Doctor, int ID_Center) {
+        this.id = id;
         this.tDay = tDay;
         this.tMonth = tMonth;
         this.tYear = tYear;
@@ -23,17 +28,23 @@ public class Timeslot {
         this.startMinutes = startMinutes;
         this.endHour = endHour;
         this.endMinutes = endMinutes;
+        this.AMKA_Doctor = AMKA_Doctor;
+        this.ID_Center = ID_Center;
     }
 
-    public int getDay() {
+    public int getId() {
+        return id;
+    }
+
+    public int gettDay() {
         return tDay;
     }
 
-    public int getMonth() {
+    public int gettMonth() {
         return tMonth;
     }
 
-    public int getYear() {
+    public int gettYear() {
         return tYear;
     }
 
@@ -51,5 +62,13 @@ public class Timeslot {
 
     public int getEndMinutes() {
         return endMinutes;
+    }
+
+    public int getAMKA_Doctor() {
+        return AMKA_Doctor;
+    }
+
+    public int getID_Center() {
+        return ID_Center;
     }
 }
