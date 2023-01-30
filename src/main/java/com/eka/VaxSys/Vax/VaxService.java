@@ -11,6 +11,8 @@ public class VaxService {
 	private TimeslotRepository timeslotRepository;
 	@Autowired
 	private EnduserRepository enduserRepository;
+	@Autowired
+	private AppointmentRepository appointmentRepository;
 
 	public List<Timeslot> getAllTimeslots() throws Exception {
 		return timeslotRepository.findAll();
@@ -18,5 +20,10 @@ public class VaxService {
 
 	public List<Enduser> login() throws Exception {
 		return enduserRepository.findAll();
+	}
+
+	public void addAppointment(Appointment a) {
+		Optional<Appointment> byId = appointmentRepository.findById(a.getIdTimeslot());
+		if (!byId.isPresent()) appointmentRepository.save(a);
 	}
 }
