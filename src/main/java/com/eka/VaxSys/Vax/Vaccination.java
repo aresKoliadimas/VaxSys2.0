@@ -1,14 +1,17 @@
 package com.eka.VaxSys.Vax;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Vaccination {
     @Id
-    int vaxId;
-    int AMKA_Citizen;
-    int AMKA_Doctor;
+    int slot_id;
+//        @OneToOne
+//                @JoinColumn(name = "AMKA_Citizen")
+//    Citizen citizen;
+//    @OneToOne
+//            @JoinColumn(name = "AMKA_Doctor")
+//    Doctor doctor;
     int vaxDay;
     int vaxMonth;
     int vaxYear;
@@ -18,10 +21,10 @@ public class Vaccination {
 
     public Vaccination() {}
 
-    public Vaccination(int vaxId, int AMKA_Citizen, int AMKA_Doctor, int vaxDay, int vaxMonth, int vaxYear, int endDay, int endMonth, int endYear) {
-        this.vaxId = vaxId;
-        this.AMKA_Citizen = AMKA_Citizen;
-        this.AMKA_Doctor = AMKA_Doctor;
+    public Vaccination(int slot_id, Citizen citizen, Doctor doctor, int vaxDay, int vaxMonth, int vaxYear, int endDay, int endMonth, int endYear) {
+        this.slot_id = slot_id;
+//        this.citizen = citizen;
+//        this.doctor = doctor;
         this.vaxDay = vaxDay;
         this.vaxMonth = vaxMonth;
         this.vaxYear = vaxYear;
@@ -30,17 +33,17 @@ public class Vaccination {
         this.endYear = endYear;
     }
 
-    public int getVaxId() {
-        return vaxId;
+    public int getSlot_id() {
+        return slot_id;
     }
 
-    public int getAMKA_Citizen() {
-        return AMKA_Citizen;
-    }
-
-    public int getAMKA_Doctor() {
-        return AMKA_Doctor;
-    }
+//    public Citizen getCitizen() {
+//        return citizen;
+//    }
+//
+//    public Doctor getDoctor() {
+//        return doctor;
+//    }
 
     public int getVaxDay() {
         return vaxDay;

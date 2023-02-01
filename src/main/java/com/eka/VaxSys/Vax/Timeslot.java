@@ -2,25 +2,29 @@ package com.eka.VaxSys.Vax;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Timeslot {
     @Id
-    int id;
-    int tDay;
-    int tMonth;
-    int tYear;
-    int startHour;
-    int startMinutes;
-    int endHour;
-    int endMinutes;
-    int AMKA_Doctor;
-    int ID_Center;
+    private int slot_id;
+    private int tDay;
+    private int tMonth;
+    private int tYear;
+    private int startHour;
+    private int startMinutes;
+    private int endHour;
+    private int endMinutes;
+    @ManyToOne
+            @JoinColumn(name = "AMKA_Doctor")
+    private Doctor doctor;
+    private int ID_Center;
 
     public Timeslot(){};
 
-    public Timeslot(int id, int tDay, int tMonth, int tYear, int startHour, int startMinutes, int endHour, int endMinutes, int AMKA_Doctor, int ID_Center) {
-        this.id = id;
+    public Timeslot(int slot_id, int tDay, int tMonth, int tYear, int startHour, int startMinutes, int endHour, int endMinutes, Doctor doctor, int ID_Center) {
+        this.slot_id = slot_id;
         this.tDay = tDay;
         this.tMonth = tMonth;
         this.tYear = tYear;
@@ -28,12 +32,16 @@ public class Timeslot {
         this.startMinutes = startMinutes;
         this.endHour = endHour;
         this.endMinutes = endMinutes;
-        this.AMKA_Doctor = AMKA_Doctor;
+        this.doctor = doctor;
         this.ID_Center = ID_Center;
     }
 
-    public int getId() {
-        return id;
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public int getSlotId() {
+        return slot_id;
     }
 
     public int gettDay() {
@@ -64,8 +72,8 @@ public class Timeslot {
         return endMinutes;
     }
 
-    public int getAMKA_Doctor() {
-        return AMKA_Doctor;
+    public Doctor getDoctor() {
+        return doctor;
     }
 
     public int getID_Center() {
