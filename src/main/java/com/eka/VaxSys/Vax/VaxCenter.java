@@ -13,6 +13,9 @@ public class VaxCenter {
     @OneToMany(mappedBy="slot_id", cascade= CascadeType.ALL, fetch = FetchType.LAZY)
     List<Timeslot> timeslot = new ArrayList<Timeslot>();
 
+    public VaxCenter() {
+    }
+
     public VaxCenter(int id_center, String address) {
         this.id_center = id_center;
         this.address = address;
