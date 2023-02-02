@@ -1,9 +1,6 @@
 package com.eka.VaxSys.Vax;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Timeslot {
@@ -22,10 +19,12 @@ public class Timeslot {
     @ManyToOne
             @JoinColumn(name= "id_center")
     private VaxCenter vaxCenter;
+    @ManyToMany(mappedBy="timeslot")
+    private Citizen citizen;
 
     public Timeslot(){};
 
-    public Timeslot(int slot_id, int tDay, int tMonth, int tYear, int startHour, int startMinutes, int endHour, int endMinutes, Doctor doctor, VaxCenter vaxCenter) {
+    public Timeslot(int slot_id, int tDay, int tMonth, int tYear, int startHour, int startMinutes, int endHour, int endMinutes, Doctor doctor, VaxCenter vaxCenter, Citizen citizen) {
         this.slot_id = slot_id;
         this.tDay = tDay;
         this.tMonth = tMonth;
@@ -36,13 +35,10 @@ public class Timeslot {
         this.endMinutes = endMinutes;
         this.doctor = doctor;
         this.vaxCenter = vaxCenter;
+        this.citizen = citizen;
     }
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
-
-    public int getSlotId() {
+    public int getSlot_id() {
         return slot_id;
     }
 
@@ -80,5 +76,9 @@ public class Timeslot {
 
     public VaxCenter getVaxCenter() {
         return vaxCenter;
+    }
+
+    public Citizen getCitizen() {
+        return citizen;
     }
 }

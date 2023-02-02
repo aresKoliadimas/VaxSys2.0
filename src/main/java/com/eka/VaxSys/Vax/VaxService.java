@@ -11,8 +11,8 @@ public class VaxService {
 	private TimeslotRepository timeslotRepository;
 	@Autowired
 	private EnduserRepository enduserRepository;
-	@Autowired
-	private AppointmentRepository appointmentRepository;
+//	@Autowired
+//	private AppointmentRepository appointmentRepository;
 	@Autowired
 	private VaccinationRepository vaccinationRepository;
 
@@ -24,10 +24,10 @@ public class VaxService {
 		return enduserRepository.findAll();
 	}
 
-	public void addAppointment(Appointment a) {
-		Optional<Appointment> byId = appointmentRepository.findById(a.getIdTimeslot());
-		if (!byId.isPresent()) appointmentRepository.save(a);
-	}
+//	public void addAppointment(Appointment a) {
+//		Optional<Appointment> byId = appointmentRepository.findById(a.getIdTimeslot());
+//		if (!byId.isPresent()) appointmentRepository.save(a);
+//	}
 
 	public Optional<Vaccination> getVaxStatus(int amka) {
 		return vaccinationRepository.findById(amka);
