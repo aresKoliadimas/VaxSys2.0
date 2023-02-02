@@ -19,11 +19,13 @@ public class Timeslot {
     @ManyToOne
             @JoinColumn(name = "AMKA_Doctor")
     private Doctor doctor;
-    private int ID_Center;
+    @ManyToOne
+            @JoinColumn(name= "id_center")
+    private VaxCenter vaxCenter;
 
     public Timeslot(){};
 
-    public Timeslot(int slot_id, int tDay, int tMonth, int tYear, int startHour, int startMinutes, int endHour, int endMinutes, Doctor doctor, int ID_Center) {
+    public Timeslot(int slot_id, int tDay, int tMonth, int tYear, int startHour, int startMinutes, int endHour, int endMinutes, Doctor doctor, VaxCenter vaxCenter) {
         this.slot_id = slot_id;
         this.tDay = tDay;
         this.tMonth = tMonth;
@@ -33,7 +35,7 @@ public class Timeslot {
         this.endHour = endHour;
         this.endMinutes = endMinutes;
         this.doctor = doctor;
-        this.ID_Center = ID_Center;
+        this.vaxCenter = vaxCenter;
     }
 
     public void setDoctor(Doctor doctor) {
@@ -76,7 +78,7 @@ public class Timeslot {
         return doctor;
     }
 
-    public int getID_Center() {
-        return ID_Center;
+    public VaxCenter getVaxCenter() {
+        return vaxCenter;
     }
 }
