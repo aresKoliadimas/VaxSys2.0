@@ -1,6 +1,9 @@
 package com.eka.VaxSys.Vax;
 
 import java.util.*;
+
+import com.eka.VaxSys.Vax.model.Enduser;
+import com.eka.VaxSys.Vax.model.Timeslot;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.*;
 

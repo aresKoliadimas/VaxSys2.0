@@ -1,11 +1,14 @@
-package com.eka.VaxSys.Vax;
+package com.eka.VaxSys.Vax.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
 public class Enduser {
     @Id
+    Integer id;
+    @Column(unique = true)
     String username;
     String password;
     boolean isAdmin;
@@ -16,6 +19,10 @@ public class Enduser {
         this.username = username;
         this.password = password;
         this.isAdmin = isAdmin;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getUsername() {
