@@ -8,18 +8,18 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Timeslot {
     @Id
-    private int slot_id;
-    private int tDay;
-    private int tMonth;
-    private int tYear;
-    private int startHour;
-    private int startMinutes;
-    private int endHour;
-    private int endMinutes;
+    int slot_id;
+    int tDay;
+    int tMonth;
+    int tYear;
+    int startHour;
+    int startMinutes;
+    int endHour;
+    int endMinutes;
     @ManyToOne
             @JoinColumn(name = "AMKA_Doctor")
-    private Doctor doctor;
-    private int ID_Center;
+    Doctor doctor;
+    int ID_Center;
 
     public Timeslot(){};
 
