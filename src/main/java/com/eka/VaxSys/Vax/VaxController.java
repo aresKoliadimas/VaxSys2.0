@@ -27,9 +27,13 @@ public class VaxController {
 		vs.addAppointment(a);
 	}
 
-	@PostMapping(path = "/getVaxStatus/{amka}")
-	public Optional<Vaccination> getVaxStatus(@PathVariable int amka) throws Exception {
-		return vs.getVaxStatus(amka);
-	}
+//	@PostMapping(path = "/getVaxStatus/{amka}")
+//	public Optional<Vaccination> getVaxStatus(@PathVariable int amka) throws Exception {
+//		return vs.getVaxStatus(amka);
+//	}
 
+	@PostMapping(path = "/addVaccination")
+	public void addVaccination(@RequestBody Vaccination v) throws Exception {
+		vs.addVaccination(v);
+	}
 }

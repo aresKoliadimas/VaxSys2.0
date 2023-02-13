@@ -32,4 +32,9 @@ public class VaxService {
 	public Optional<Vaccination> getVaxStatus(int amka) {
 		return vaccinationRepository.findById(amka);
 	}
+
+	public void addVaccination(Vaccination v) {
+		Optional<Vaccination> byId = vaccinationRepository.findById(v.getVax_id());
+		if (!byId.isPresent()) vaccinationRepository.save(v);
+	}
 }
